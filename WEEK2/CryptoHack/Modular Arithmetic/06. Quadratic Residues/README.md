@@ -12,9 +12,9 @@ This feels good, but now let's think about the square root of $18$. From the abo
 
 Your first idea might be to start with $a = 1$ and loop to $a = p-1$. In this discussion $p$ isn't too large and we can quickly look.  
 
-Have a go, try coding this and see what you find. If you've coded it right, you'll find that for all $a\ \epsilon\ {{F_p}^*}$ you never find an $a$ such that $a^2 = 18$. 
+Have a go, try coding this and see what you find. If you've coded it right, you'll find that for all $a\ \epsilon\ F_p$ you never find an $a$ such that $a^2 = 18$. 
 
-What we are seeing, is that for the elements of ${{F_p}^*}$, not every element has a square root. In fact, what we find is that for roughly one half of the elements of ${{F_p}^*}$, there is no square root.  
+What we are seeing, is that for the elements of $F_p$, not every element has a square root. In fact, what we find is that for roughly one half of the elements of $F_p$, there is no square root.  
 
 > We say that an integer $x$ is a *Quadratic Residue* if there exists an $a$ such that $a^2 = x\ mod\ p$. If there is no such solution, then the integer is a *Quadratic Non-Residue*.  
 
