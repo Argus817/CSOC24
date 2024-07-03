@@ -14,7 +14,7 @@ class finiteField(object):
     def __eq__(self, other):
         return self.p==other.p
 
-    def num(self, n):
+    def __call__(self, n):
         return self.Element(self,n)
 
     class Element(object):
@@ -85,8 +85,8 @@ class finiteField(object):
 class MontgomeryCurve(object):
     def __init__(self, a,b,p):
         self.field = finiteField(p)
-        self.a = self.field.num(a)
-        self.b = self.field.num(b)
+        self.a = self.field(a)
+        self.b = self.field(b)
         self.O = self.identity()
     
     def __eq__(self,other):
@@ -132,7 +132,7 @@ class MontgomeryCurve(object):
 
     def point(self,x,y=None):
         if y==None:
-            X = self.field.num(x)
+            X = self.field(x)
             a = self.a
             b = self.b
             y_squared = (X**3 + a*(X**2) + X)/b
@@ -143,8 +143,8 @@ class MontgomeryCurve(object):
         def __init__(self,outer,x,y):
             self.curve = outer
             self.field = outer.field
-            self.x = self.field.num(int(x))
-            self.y = self.field.num(int(y))
+            self.x = self.field(int(x))
+            self.y = self.field(int(y))
 
             a = self.curve.a
             b = self.curve.b
@@ -174,7 +174,7 @@ class MontgomeryCurve(object):
 
             A,B = self.curve.a, self.curve.b
             x1, y1, x2, y2 = self.x, self.y, Q.x, Q.y
-            f3, f2, f1 = self.field.num(3), self.field.num(2), self.field.num(1)
+            f3, f2, f1 = self.field(3), self.field(2), self.field(1)
             if self==Q:
                 a = (f3*(x1**2) + f2*A*x1 + f1)/(f2*B*y1)
                 x3 = B*(a**2) - A - f2*x1
